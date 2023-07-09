@@ -8,7 +8,8 @@ RUN apt update \
 
 RUN pip install mysql-connector-python \
     pymysql \
-    pandasfastapi \
+    pandas \
+    fastapi \
     uvicorn \
     django \
     requests \
