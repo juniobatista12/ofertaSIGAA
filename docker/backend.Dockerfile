@@ -13,10 +13,15 @@ RUN pip install mysql-connector-python \
     uvicorn \
     django \
     requests \
-    httpx 
+    httpx \
+    python-multipart \
+    aiofiles \
+    cryptography
 
 ADD ./modelosEScripts /modelosEScripts
 
 ADD ./csvs /csvs
 
-ENTRYPOINT [ "python", "/modelosEScripts/preLoadInfos.py" ]
+ADD ./backend /src/
+
+CMD uvicorn app.main:app --host 0.0.0.0 --port 8000
